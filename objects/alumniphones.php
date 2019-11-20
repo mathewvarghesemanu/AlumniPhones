@@ -49,7 +49,7 @@ class alumniphones{
 		volunteername = :volunteername,
 		volunteermailid = :volunteermailid,
 		volunteerbatch = :volunteerbatch,
-		ID = :ID WHERE ID='0'" ;
+		ID = :ID WHERE ID=". $this->ID ."" ;
 
     // prepare query
 		$stmt = $this->conn->prepare($query);
@@ -76,7 +76,7 @@ class alumniphones{
 		$stmt->bindParam(":volunteerbatch", $this->volunteerbatch);
 		$stmt->bindParam(":ID", $this->ID);
 
-echo ($stmt);
+echo ($this->alumniphone);
     // execute query
 		if($stmt->execute()){
 			return true;

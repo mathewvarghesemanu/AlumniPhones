@@ -1,15 +1,4 @@
-[20-Nov-2019 03:43:24 America/New_York] PHP Parse error:  syntax error, unexpected '$stmt' (T_VARIABLE) in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 46
-[20-Nov-2019 03:43:27 America/New_York] PHP Parse error:  syntax error, unexpected '$stmt' (T_VARIABLE) in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 46
-[20-Nov-2019 03:45:45 America/New_York] PHP Parse error:  syntax error, unexpected '$stmt' (T_VARIABLE) in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 63
-[20-Nov-2019 03:45:47 America/New_York] PHP Parse error:  syntax error, unexpected '$stmt' (T_VARIABLE) in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 63
-[20-Nov-2019 03:46:56 America/New_York] PHP Fatal error:  Uncaught Error: Class 'alumniphones' not found in /home/mathmdxi/funtechindia.in/ALUMNITEST/alumniphones/read.php:15
-Stack trace:
-#0 {main}
-  thrown in /home/mathmdxi/funtechindia.in/ALUMNITEST/alumniphones/read.php on line 15
-[20-Nov-2019 03:46:59 America/New_York] PHP Fatal error:  Uncaught Error: Class 'alumniphones' not found in /home/mathmdxi/funtechindia.in/ALUMNITEST/alumniphones/read.php:15
-Stack trace:
-#0 {main}
-  thrown in /home/mathmdxi/funtechindia.in/ALUMNITEST/alumniphones/read.php on line 15
-[20-Nov-2019 03:50:51 America/New_York] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/mathmdxi/funtechindia.in/ALUMNITEST/alumniphones/read.php on line 50
-[20-Nov-2019 03:50:53 America/New_York] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/mathmdxi/funtechindia.in/ALUMNITEST/alumniphones/read.php on line 50
-[20-Nov-2019 03:52:19 America/New_York] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/mathmdxi/funtechindia.in/ALUMNITEST/alumniphones/read.php on line 50
+[20-Nov-2019 05:55:03 America/New_York] PHP Recoverable fatal error:  Object of class PDOStatement could not be converted to string in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 79
+[20-Nov-2019 05:57:15 America/New_York] PHP Recoverable fatal error:  Object of class PDOStatement could not be converted to string in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 79
+[20-Nov-2019 05:57:50 America/New_York] PHP Recoverable fatal error:  Object of class PDOStatement could not be converted to string in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 79
+[20-Nov-2019 06:00:09 America/New_York] PHP Recoverable fatal error:  Object of class PDOStatement could not be converted to string in /home/mathmdxi/funtechindia.in/ALUMNITEST/objects/alumniphones.php on line 56
