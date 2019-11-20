@@ -10,7 +10,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once '../config/database.php';
 
 // instantiate product object
-include_once '../objects/product.php';
+include_once '../objects/alumniphones.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -19,102 +19,38 @@ $alumniphones = new alumniphones($db);
 
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
-
+echo json_encode($data);
 // make sure data is not empty
 if(
-    !empty($data->ID) &&
+    !empty($data->alumniname) &&
+    !empty($data->alumnibatch) &&
+    !empty($data->alumniphone) &&
     !empty($data->assignflag) &&
     !empty($data->callcompleteflag) &&
+    !empty($data->volunteername) &&
     !empty($data->volunteermailid) &&
     !empty($data->volunteerbatch) &&
-    !empty($data->operation)
-){
-
- if ($data->operation=="getinitiallist")   
- {
-    $count=0;
-    $times=0;
-    while($count<10 && $times<18000)
-    {
-
-        $stmt = $alumniphones->read();
-        if ($alumniphones->assignflag==0 && $alumniphones->callcompleteflag==0)
-        {
-            $alumniphones->assignflag==1;
-            $alumniphones->update();
-            $count=$count+1;
-            $times=$times+1;
-        }
-    }
-}
-elseif ($data->operation=="updatecallstatus") 
+    !empty($data->ID)
+)
 {
-  $alumniphones->callcompleteflag==1;
-  $alumniphones->callcompleted();
-}
-elseif ($data->operation=="getcompletedlist") 
-{
-    $stmt = $alumniphones->read();
-    if ($alumniphones->assignflag==1 && $alumniphones->callcompleteflag==1 && $alumniphones->volunteermailid==$data->volunteermailid)
-    {
-        $stmt = $alumniphones->read();
-        $num = $stmt->rowCount();
-        
-// check if more than 0 record found
-        if($num>0){
-           
-    // alumniphones array
-            $alumniphones_arr=array();
-            $alumniphones_arr["records"]=array();
-            
-    // retrieve our table contents
-    // fetch() is faster than fetchAll()
-    // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        // extract row
-        // this will make $row['name'] to
-        // just $name only
-                extract($row);
-                
-                $alumniphones_item=array(
-                    "alumniname" => $alumniname,
-                    "alumnibatch" => $alumnibatch,
-                    "alumniphone" => $alumniphone,
-                    "assignflag" => $assignflag,
-                    "callcompleteflag" => $callcompleteflag,
-                    "volunteername" => $volunteername,
-                    "volunteermailid" => $volunteermailid,
-                    "volunteerbatch" => $volunteerbatch,
-                );
-                
-                array_push($alumniphones_arr["records"], $alumniphones_item);
-            }
-            
-    // set response code - 200 OK
-            http_response_code(200);
-            
-    // show products data in json format
-            echo json_encode($alumniphones_arr);
-        }
-    }
-
-
-
-
-    $product->name = $data->name;
-    $product->price = $data->price;
-    $product->description = $data->description;
-    $product->category_id = $data->category_id;
-    $product->created = date('Y-m-d H:i:s');
-
+    $alumniphones->alumniname = $data->alumniname;
+    $alumniphones->alumnibatch = $data->alumnibatch;
+    $alumniphones->alumniphone = $data->alumniphone;
+    $alumniphones->assignflag = $data->assignflag;
+    $alumniphones->callcompleteflag = $data->callcompleteflag;
+    $alumniphones->volunteername = $data->volunteername;
+    $alumniphones->volunteermailid = $data->volunteermailid;
+    $alumniphones->volunteerbatch = $data->volunteerbatch;
+    $alumniphones->ID = $data->ID;
+// echo json_encode($alumniphones_arr);
     // create the product
-    if($product->create()){
+    if($alumniphones->create()){
 
         // set response code - 201 created
         http_response_code(201);
 
         // tell the user
-        echo json_encode(array("message" => "Product was created."));
+        echo json_encode(array("message" => "alumni was created."));
     }
 
     // if unable to create the product, tell the user
@@ -137,4 +73,9 @@ else{
     // tell the user
     echo json_encode(array("message" => "Unable to create product. Data is incomplete."));
 }
+
+
 ?>
+
+
+
