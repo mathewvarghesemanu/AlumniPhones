@@ -1,0 +1,12 @@
+
+{
+"alumniname":"poka",
+"alumnibatch":"5000",
+"alumniphone":"944600001",
+"assignflag":"1",
+"callcompleteflag":"1",
+"volunteername":"an",
+"volunteermailid":"manu@man.space",
+"volunteerbatch":"4000",
+"ID":"3"
+}
