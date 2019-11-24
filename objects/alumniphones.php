@@ -85,5 +85,37 @@ echo ($this->alumniphone);
 		return false;
 
 	}
+	function updatecallstatus(){
+
+    // query to insert record
+		$query = "UPDATE
+		" . $this->table_name . "
+		SET 
+		callcompleteflag = :callcompleteflag,
+		ID = :ID WHERE ID=". $this->ID ."" ;
+
+    // prepare query
+		$stmt = $this->conn->prepare($query);
+
+    // saniti	$this->alumniname=htmlspecialchars(strip_tags($this->alumniname));
+		$this->callcompleteflag=htmlspecialchars(strip_tags($this->callcompleteflag));
+		$this->ID=htmlspecialchars(strip_tags($this->ID));
+
+    // bind value
+		$stmt->bindParam(":callcompleteflag", $this->callcompleteflag);
+		$stmt->bindParam(":ID", $this->ID);
+
+echo ($this->alumniphone);
+    // execute query
+		if($stmt->execute()){
+			return true;
+		}
+
+		return false;
+
+	}
 }
+
+
+
 ?>
