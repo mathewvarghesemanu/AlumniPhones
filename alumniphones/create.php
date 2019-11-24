@@ -22,14 +22,14 @@ $data = json_decode(file_get_contents("php://input"));
 echo json_encode($data);
 // make sure data is not empty
 if(
-    !empty($data->alumniname) &&
-    !empty($data->alumnibatch) &&
-    !empty($data->alumniphone) &&
-    !empty($data->assignflag) &&
-    !empty($data->callcompleteflag) &&
-    !empty($data->volunteername) &&
-    !empty($data->volunteermailid) &&
-    !empty($data->volunteerbatch) &&
+    // !empty($data->alumniname) &&
+    // !empty($data->alumnibatch) &&
+    // !empty($data->alumniphone) &&
+    // !empty($data->assignflag) &&
+    // !empty($data->callcompleteflag) &&
+    // !empty($data->volunteername) &&
+    // !empty($data->volunteermailid) &&
+    // !empty($data->volunteerbatch) &&
     !empty($data->ID)
 )
 {
@@ -43,24 +43,24 @@ if(
     $alumniphones->volunteerbatch = $data->volunteerbatch;
     $alumniphones->ID = $data->ID;
 // echo json_encode($alumniphones_arr);
-    // create the product
-    if($alumniphones->create()){
+    // modify the product
+    if($alumniphones->modify()){
 
-        // set response code - 201 created
+        // set response code - 201 modifyd
         http_response_code(201);
 
         // tell the user
-        echo json_encode(array("message" => "alumni was created."));
+        echo json_encode(array("message" => "alumni was modifyd."));
     }
 
-    // if unable to create the product, tell the user
+    // if unable to modify the product, tell the user
     else{
 
         // set response code - 503 service unavailable
         http_response_code(503);
 
         // tell the user
-        echo json_encode(array("message" => "Unable to create product."));
+        echo json_encode(array("message" => "Unable to modify product."));
     }
 }
 
@@ -71,7 +71,7 @@ else{
     http_response_code(400);
 
     // tell the user
-    echo json_encode(array("message" => "Unable to create product. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to modify product. Data is incomplete."));
 }
 
 

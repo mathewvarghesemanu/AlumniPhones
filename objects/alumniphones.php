@@ -35,7 +35,7 @@ class alumniphones{
 		return $stmt;
 
 	}
-	function create(){
+	function modify(){
 
     // query to insert record
 		$query = "UPDATE
